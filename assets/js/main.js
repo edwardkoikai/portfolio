@@ -50,59 +50,59 @@ let swiperProjects = new Swiper(".projects__container", {
 });
 
 /*=============== EMAIL JS ===============*/
-const contactForm = document.getElementById("contact-form"),
-  contactName = document.getElementById("contact-name"),
-  contactEmail = document.getElementById("contact-email"),
-  contactProject = document.getElementById("contact-project");
-contactMessage = document.getElementById("contact-message");
+// const contactForm = document.getElementById("contact-form"),
+//   contactName = document.getElementById("contact-name"),
+//   contactEmail = document.getElementById("contact-email"),
+//   contactProject = document.getElementById("contact-project");
+// contactMessage = document.getElementById("contact-message");
 
-const sendEmail = (e) => {
-  e.preventDefault();
+// const sendEmail = (e) => {
+//   e.preventDefault();
 
-  //Check if the field has a value
-  if (
-    contactName.value === "" ||
-    contactEmail.value === "" ||
-    contactProject.value === ""
-  ) {
-    //Add and remove color
-    contactMessage.classList.remove("color-blue");
-    contactMessage.classList.add("color-red");
+//   //Check if the field has a value
+//   if (
+//     contactName.value === "" ||
+//     contactEmail.value === "" ||
+//     contactProject.value === ""
+//   ) {
+//     //Add and remove color
+//     contactMessage.classList.remove("color-blue");
+//     contactMessage.classList.add("color-red");
 
-    //Show message
-    contactMessage.textContent = "Write all the input fields!";
-  } else {
-    //serviceID - templateID - #form -publicKey
-    emailjs
-      .sendForm(
-        "service_9pl818r",
-        "template_lldh1sn",
-        "#contact-form",
-        "nUWjG4TMe4uHMn2Mg"
-      )
-      .then(
-        () => {
-          //Show message and add color
-          contactMessage.classList.add("color-blue");
-          contactMessage.textContent = "Message sent ☑️";
+//     //Show message
+//     contactMessage.textContent = "Write all the input fields!";
+//   } else {
+//     //serviceID - templateID - #form -publicKey
+//     emailjs
+//       .sendForm(
+//         "service_9pl818r",
+//         "template_lldh1sn",
+//         "#contact-form",
+//         "nUWjG4TMe4uHMn2Mg"
+//       )
+//       .then(
+//         () => {
+//           //Show message and add color
+//           contactMessage.classList.add("color-blue");
+//           contactMessage.textContent = "Message sent ☑️";
 
-          //Remove message after 5 seconds
-          setTimeout(() => {
-            contactMessage.textContent = "";
-          }, 5000);
-        },
-        (error) => {
-          alert("OOPS!, Something has failed...", error);
-        }
-      );
+//           //Remove message after 5 seconds
+//           setTimeout(() => {
+//             contactMessage.textContent = "";
+//           }, 5000);
+//         },
+//         (error) => {
+//           alert("OOPS!, Something has failed...", error);
+//         }
+//       );
 
-    //To clear the input field
-    contactEmail.value = "";
-    contactName.value = "";
-    contactProject.value = "";
-  }
-};
-contactForm.addEventListener("submit", sendEmail);
+//     //To clear the input field
+//     contactEmail.value = "";
+//     contactName.value = "";
+//     contactProject.value = "";
+//   }
+// };
+// contactForm.addEventListener("submit", sendEmail);
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
 const sections = document.querySelectorAll("section[id]");
 
@@ -138,7 +138,7 @@ window.addEventListener("scroll", scrollUp);
 /*=============== DARK LIGHT THEME ===============*/
 const themeButton = document.getElementById("theme-button");
 const darkTheme = "dark-theme";
-const iconTheme = "ri-sun-line";
+const iconTheme = "ri-moon-line";
 
 //Previously selected topic
 const selectedTheme = localStorage.getItem("selected-theme");
@@ -163,13 +163,14 @@ if (selectedTheme) {
 
 //Activate or deactivate the theme manually with the button
 themeButton.addEventListener("click", () => {
+  console.log("Theme button clicked")
   //Add or removing the dark icon theme
   document.body.classList.toggle(darkTheme);
   themeButton.classList.toggle(iconTheme);
 
   //Save the theme and current icon to the localStorage
   localStorage.setItem("selected-theme", getCurrentTheme());
-  localStorage.setItem("seleceted-icon", getCurrentIcon());
+  localStorage.setItem("selected-icon", getCurrentIcon());
 });
 
 /*=============== CHANGE BACKGROUND HEADER ===============*/
