@@ -135,43 +135,56 @@ const scrollUp = () => {
 };
 window.addEventListener("scroll", scrollUp);
 
-/*=============== DARK LIGHT THEME ===============*/
-const themeButton = document.getElementById("theme-button");
+// /*=============== DARK LIGHT THEME ===============*/
+// const themeButton = document.getElementById("theme-button");
+// const darkTheme = "dark-theme";
+// const iconTheme = "ri-moon-line";
+
+// //Previously selected topic
+// const selectedTheme = localStorage.getItem("selected-theme");
+// const selectedIcon = localStorage.getItem("selected-icon");
+
+// //We obtain the current theme that the interface has by validating the dark theme class
+// const getCurrentTheme = () =>
+//   document.body.classList.contains(darkTheme) ? "dark" : "light";
+// const getCurrentIcon = () =>
+//   themeButton.classList.contains(iconTheme) ? "ri-moon-line" : "ri-sun-line";
+
+// //We validate if the user previously chose a topic
+// if (selectedTheme) {
+//   //if validations is fulfilled, we ask what the issue was to know if we activated
+//   document.body.classList[selectedTheme === "dark" ? "add" : "remove"](
+//     darkTheme
+//   );
+//   themeButton.classList[selectedIcon === "ri-moon-line" ? "add" : "remove"](
+//     iconTheme
+//   );
+// }
+
+// //Activate or deactivate the theme manually with the button
+// themeButton.addEventListener("click", () => {
+//   console.log("Theme button clicked")
+//   //Add or removing the dark icon theme
+//   document.body.classList.toggle(darkTheme);
+//   themeButton.classList.toggle(iconTheme);
+
+//   //Save the theme and current icon to the localStorage
+//   localStorage.setItem("selected-theme", getCurrentTheme());
+//   localStorage.setItem("selected-icon", getCurrentIcon());
+// });
+
+/*=============== FORCE DARK MODE ===============*/
 const darkTheme = "dark-theme";
-const iconTheme = "ri-moon-line";
 
-//Previously selected topic
-const selectedTheme = localStorage.getItem("selected-theme");
-const selectedIcon = localStorage.getItem("selected-icon");
+// Apply dark theme by default
+document.body.classList.add(darkTheme);
 
-//We obtain the current theme that the interface has by validating the dark theme class
-const getCurrentTheme = () =>
-  document.body.classList.contains(darkTheme) ? "dark" : "light";
-const getCurrentIcon = () =>
-  themeButton.classList.contains(iconTheme) ? "ri-moon-line" : "ri-sun-line";
-
-//We validate if the user previously chose a topic
-if (selectedTheme) {
-  //if validations is fulfilled, we ask what the issue was to know if we activated
-  document.body.classList[selectedTheme === "dark" ? "add" : "remove"](
-    darkTheme
-  );
-  themeButton.classList[selectedIcon === "ri-moon-line" ? "add" : "remove"](
-    iconTheme
-  );
+// Remove theme button functionality
+const themeButton = document.getElementById("theme-button");
+if (themeButton) {
+  themeButton.style.display = "none"; // Hide the theme button
 }
 
-//Activate or deactivate the theme manually with the button
-themeButton.addEventListener("click", () => {
-  console.log("Theme button clicked")
-  //Add or removing the dark icon theme
-  document.body.classList.toggle(darkTheme);
-  themeButton.classList.toggle(iconTheme);
-
-  //Save the theme and current icon to the localStorage
-  localStorage.setItem("selected-theme", getCurrentTheme());
-  localStorage.setItem("selected-icon", getCurrentIcon());
-});
 
 /*=============== CHANGE BACKGROUND HEADER ===============*/
 const scrollHeader = () => {
