@@ -409,7 +409,10 @@ body.dark-theme {
 }
 
 .home__social-link {
+  display: flex;
+  align-items: center;
   font-size: 1.25rem;
+  gap: 0.5rem;
   color: var(--text-color-light);
   transition: color 0.3s;
 }
@@ -417,6 +420,7 @@ body.dark-theme {
 .home__social-link:hover {
   color: var(--title-color);
 }
+
 
 .home__info {
   display: grid;
